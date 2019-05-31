@@ -34,55 +34,18 @@ dictionary = dict(zip(names, picks))
 
 winner = []
 
-index_a = 0
-index_b = index_a + 1
+for indexes in range(0, len(dictionary) ):
+    index_a = 0
+    index_b = index_a + 1
 
-for i in dictionary:
-    a = list(dictionary.values())
-    a = a[index_a]
+    for i in dictionary:
+        a = list(dictionary.values())
+        a = a[index_a]
 
-    b = list(dictionary.values())
-    b = b[index_b]
+        b = list(dictionary.values())
+        b = b[index_b]
 
-    if max(a) > max (b):                                            #winner is person a
-
-        y = list( dictionary.keys() )
-        y = y[ index_a ]
-
-        win = y
-
-        if len( dictionary ) > 2:
-            index_b = index_b + 1
-        else:
-            index_b = index_b
-
-    elif max(a) < max(b):                                          #winner is person b
-
-        x = list( dictionary.keys() )
-        x = x[ index_b ]
-
-        win = x
-        index_a = index_b
-
-        if len( dictionary ) > 2:
-            index_a = index_b + 1
-        else:
-            index_a = index_b
-
-
-    elif max(a) == max(b) :                                         #it's a tie
-
-        r = a.copy()
-        s = b.copy()
-
-        while ( max(r) == max(s) ):                                #remove duplicates from the list then analyze it
-            m = r.index( max(r) )
-            n = s.index( max(r) )
-
-            r.pop(m)
-            s.pop(n)
-
-        if max(r) > max (s):
+        if max(a) > max (b):                                            #winner is person a
 
             y = list( dictionary.keys() )
             y = y[ index_a ]
@@ -94,7 +57,7 @@ for i in dictionary:
             else:
                 index_b = index_b
 
-        elif max(r) < max(s):
+        elif max(a) < max(b):                                          #winner is person b
 
             x = list( dictionary.keys() )
             x = x[ index_b ]
@@ -102,9 +65,49 @@ for i in dictionary:
             win = x
             index_a = index_b
 
-        elif r == [] or s == []:
-            win = "Nobody"
+            if len( dictionary ) > 2:
+                index_a = index_b + 1
+            else:
+                index_a = index_b
 
+
+        elif max(a) == max(b) :                                         #it's a tie
+
+            r = a.copy()
+            s = b.copy()
+
+            while ( max(r) == max(s) ):                                #remove duplicates from the list then analyze it
+                m = r.index( max(r) )
+                n = s.index( max(r) )
+
+                r.pop(m)
+                s.pop(n)
+
+                if len(r) == 1 and len(s) == 1:
+                    break
+
+            if max(r) > max (s):
+
+                y = list( dictionary.keys() )
+                y = y[ index_a ]
+
+                win = y
+
+                if len( dictionary ) > 2:
+                    index_b = index_b + 1
+                else:
+                    index_b = index_b
+
+            elif max(r) < max(s):
+
+                x = list( dictionary.keys() )
+                x = x[ index_b ]
+
+                win = x
+                index_a = index_b
+
+            elif r == s:
+                win = "Tie"
 
 
 winner.append(win)
