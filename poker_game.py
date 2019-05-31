@@ -107,20 +107,26 @@ for indexes in range(0, len(dictionary) ):
                 index_a = index_b
 
             elif r == s:
-                win = "Tie"
+                y = list( dictionary.keys() )
+                y = y[ index_a ]
+
+                x = list( dictionary.keys() )
+                x = x[ index_b ]
+
+                win = '{} and {}'.format(x, y)
 
 
 winner.append(win)
 
 ###########################################################################################################
 
-chicken_dinner = ''.join(winner)
+winning_player = ''.join(winner)
 
 
 print( "The following hands are: ", dictionary )
 
 print()
 
-print(chicken_dinner ,"wins." )
+print(winning_player ,"wins." )
 
 ###########################################################################################################
