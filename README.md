@@ -21,6 +21,7 @@ This is my blog URL: https://larasharma.github.io/
 
 Blog is live and has everything required, poker game executes but has an odd hiccup or two, for example:
 
+```
 Numerical number of players: 4
 Name: Bob
 Name: Brad
@@ -29,7 +30,7 @@ Name: Brett
 The following hands are:  {'Bob': [6, 11, 2, 4, 12], 'Brad': [13, 13, 5, 7, 9], 'Bingo': [2, 7, 8, 12, 13], 'Brett': [10, 12, 8, 10, 14]}
 
 Brad and Brad wins.
-
+```
 
 
 Well done Lara!
